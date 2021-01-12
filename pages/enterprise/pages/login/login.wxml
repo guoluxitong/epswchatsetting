@@ -1,0 +1,43 @@
+<!--index.wxml-->
+<view class='popup-container'>
+  <view style="width: 100%; margin-left: 10px;">
+    <view style="font-size: 15px; padding-top: 10rpx;">邀请码： </view><input
+      style="height: 30px; width: 90%;border:1px solid #efefef" bindinput="referralCodeInput" />
+  </view>
+
+  <view style="margin-top: 40rpx;width: 100%; margin-left: 10px;">
+    <view style="  font-size: 15px; padding-top: 10rpx;">姓名： </view><input
+      style="height: 30px; width: 90%;border:1px solid #efefef" bindinput="nameInput" />
+  </view>
+
+  <view style=" margin-top: 40rpx;width: 100%; margin-left: 10px;">
+    <view style="  font-size: 15px; padding-top: 10rpx;">手机号： </view><input type="number" maxlength="11"
+      style=" height: 30px; width: 90%;border:1px solid #efefef" bindinput="loginPhone" />
+  </view>
+
+
+  <view style=" margin-top: 40rpx" class="yanzheng">
+    <input placeholder="短信验证码" bindinput='yanZhengInput' />
+    <button bindtap='getNewCode' class="Code" disabled="{{getCode}}">{{seconds}}{{timeText}}</button>
+  </view>
+
+  <button class="quenyButton1" bindtap='addButton'>确定</button>
+</view>
+
+<view class='toast-box' hidden='{{empower}}'>
+  <view class='toastbg'></view>
+  <view class='showToast'>
+    <view class='toast-title'>
+    <text>提示</text>
+  </view>
+  <view class='toast-button'>
+    <view class='button1'>
+      <button catchtap='refusedEmpower'>拒绝授权</button>
+    </view>
+    <view class='button2'>
+      <button wx:if="{{true}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" style="">允许授权</button>
+    </view>
+  </view>
+  </view>
+</view>
+

@@ -1,0 +1,16 @@
+<view class="zmenu">
+	<view class="menu" wx:for="{{productcategoryList}}" wx:for-item="item" wx:key="{{code}}" bindtap="Click1" data-bean="{{item}}">
+		<view style=" margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%; ">
+			<view style="width: 50%; padding-left: 2%;">{{item.name}}</view>
+		</view>
+	</view>
+</view>
+
+
+<view class="noData" wx:if="{{productcategoryList.length==0}}">
+	<image src="../../images/customer/wushuju.png" mode="widthFix" class="noDataImg"></image>
+	<view>暂无数据</view>
+</view>
+
+
+<menu class="menulist" bindmenuItemClick="menuItemClick" mainmodel="{{mainmodel}}" menulist="{{menulist}}"></menu>

@@ -1,0 +1,34 @@
+<view class="bumenu">
+
+	<view style="width: 80%;margin-top: 20rpx; margin-left: 10%;">
+		<view style=" font-size: 15px; padding-top: 10rpx;"> 控制器/柜编号：{{product.controllerNo}}</view>
+	</view>
+	<view style="width: 80%;margin-top: 20rpx; margin-left: 10%;">
+		<view style="padding-top: 10rpx; ">
+			<picker bindchange="bindPickerChange" value="{{index}}" range="{{customers}}" range-key="{{'name'}}">
+				<view class="picker">
+					客户（点击修改）：{{customers[index].name}}
+				</view>
+			</picker>
+		</view>
+	</view>
+	<view style="width: 80%;margin-top: 20rpx; margin-left: 10%;">
+		<view style="  font-size: 15px; padding-top: 10rpx; ">
+			吨位：
+		</view>
+		<input class="input" value="{{product.tonnageNum}}" style="height:30px; border:1px solid #efefef;width: 100%" type="text" bindinput="tonnageNumInput" />
+	</view>
+	<view style="width: 80%;margin-top: 20rpx; font-size: 15px;margin-left: 10%;">
+		<view class="section__title">质保到期：</view>
+		<picker mode="date" value="{{product.serviceEndDate}}" bindchange="bindDateChange">
+			<view style=" border:1px solid #efefef;width: 100%;height:30px" class="picker">
+				{{product.saleDate}}
+			</view>
+		</picker>
+	</view>
+	<view style="width: 80%;margin-top: 20rpx;margin-left: 10%;">
+		<view style="  font-size: 15px;  padding-top: 10rpx; ">备注：</view>
+		<textarea class="input" value="{{product.mark}}" style="  border:1px solid #efefef;width: 100%" bindinput="markInput" />
+		</view>
+<button class="quenyButton1" bindtap='saveBtnClick'>保存</button>
+</view>

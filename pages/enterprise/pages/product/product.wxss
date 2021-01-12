@@ -1,0 +1,342 @@
+page {
+  height: 100%;
+  background-color: rgba(191, 195, 241, 0.3);
+}
+
+.zmenu {
+  padding-top: 5px;
+}
+
+.menu {
+  text-align: left;
+  margin-top: 10px;
+  padding-top: 3%;
+  padding-bottom: 3%;
+
+  margin-bottom: 10px;
+  margin-left: 3%;
+  width: 94%;
+  border-radius: 5%;
+  background-color: white;
+  font-size: 10px;
+}
+
+.shade {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  /*要显示在wrap的上面 */
+  z-index: 1;
+  position: fixed;
+}
+
+.bumenu {
+  z-index: 50;
+  position: fixed;
+  border-radius: 4px;
+  top: 150px;
+  width: 80%;
+  padding: 10px;
+  margin-left:5%;
+  background-color: white;
+}
+
+.select_box {
+  z-index: 300;
+  background-color: white;
+  display: flex;
+  background: white;
+  width: 100%;
+  margin: 30rpx auto;
+  position: relative;
+}
+
+.select {
+
+  box-sizing: border-box;
+  width: 55%;
+  height: 70rpx;
+  border: 1px solid #efefef;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+
+}
+
+.select_text {
+
+  font-size: 30rpx;
+  flex: 1;
+}
+
+.closeimage {
+  margin-left: 90%;
+  width: 40rpx;
+  height: 35rpx;
+}
+
+.select_img {
+
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.select_img_rotate {
+
+  transform: rotate(180deg);
+}
+
+.option_box {
+
+  margin-left: 35%;
+  position: absolute;
+  top: 70rpx;
+  width: 55%;
+  box-sizing: border-box;
+  height: 0;
+  overflow-y: auto;
+  border-top: 0;
+  background: #fff;
+  transition: height 0.3s;
+}
+
+.option {
+  display: block;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  padding: 10rpx;
+}
+
+.select_box1 {
+  z-index: 250;
+  background-color: white;
+  display: flex;
+  background: #fff;
+  width: 100%;
+  margin: 30rpx auto;
+  position: relative;
+}
+
+.select1 {
+
+  box-sizing: border-box;
+  width: 55%;
+  height: 70rpx;
+  border: 1px solid #efefef;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+
+}
+
+.select_text1 {
+
+  font-size: 30rpx;
+  flex: 1;
+}
+
+.select_img1 {
+
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.select_img_rotate1 {
+
+  transform: rotate(180deg);
+}
+
+.option_box1 {
+
+  margin-left: 35%;
+  position: absolute;
+  top: 70rpx;
+  width: 55%;
+  box-sizing: border-box;
+  height: 0;
+  overflow-y: auto;
+  border-top: 0;
+  background: #fff;
+  transition: height 0.3s;
+}
+
+.option1 {
+  display: block;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  padding: 10rpx;
+}
+
+.select_box2 {
+  z-index: 200;
+  background-color: white;
+  display: flex;
+  background: #fff;
+  width: 100%;
+  margin: 30rpx auto;
+  position: relative;
+}
+
+.select2 {
+
+  box-sizing: border-box;
+  width: 55%;
+  height: 70rpx;
+  border: 1px solid #efefef;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+
+}
+
+.select_text2 {
+
+  font-size: 30rpx;
+  flex: 1;
+}
+
+.select_img2 {
+
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.select_img_rotate2 {
+
+  transform: rotate(180deg);
+}
+
+.option_box2 {
+
+  margin-left: 35%;
+  position: absolute;
+  top: 70rpx;
+  width: 55%;
+  box-sizing: border-box;
+  height: 0;
+  overflow-y: auto;
+  border-top: 0;
+  background: #fff;
+  transition: height 0.3s;
+}
+
+.option2 {
+  display: block;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  padding: 10rpx;
+}
+
+
+.select_box3 {
+  z-index: 150;
+  background-color: white;
+  display: flex;
+  background: #fff;
+  width: 100%;
+  margin: 30rpx auto;
+  position: relative;
+}
+
+.select3 {
+
+  box-sizing: border-box;
+  width: 55%;
+  height: 70rpx;
+  border: 1px solid #efefef;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+
+}
+
+.select_text3 {
+
+  font-size: 30rpx;
+  flex: 1;
+}
+
+.select_img3 {
+
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.select_img_rotate3 {
+
+  transform: rotate(180deg);
+}
+
+.option_box3 {
+
+  margin-left: 35%;
+  position: absolute;
+  top: 70rpx;
+  width: 55%;
+  box-sizing: border-box;
+  height: 0;
+  overflow-y: auto;
+  border-top: 0;
+  background: #fff;
+  transition: height 0.3s;
+}
+
+.option3 {
+  display: block;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  padding: 10rpx;
+}
+
+.quenyButton {
+  background-color: #67c23a;
+  color: white;
+  margin-top: 40rpx;
+  font-size: 30rpx;
+  height: 10%;
+  width: 30%;
+  margin-left: 10%;
+}
+
+.quenyButton1 {
+  background-color: #67c23a;
+  color: white;
+  margin-top: 40rpx;
+  font-size: 30rpx;
+  height: 10%;
+  width: 30%;
+  margin-left: 20%;
+}
+
+.noData {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40%;
+  justify-content: center;
+  align-items: center;
+}
+
+.noData image {
+  width: 300rpx;
+}
+
+.noData view {
+  font-size: 24rpx;
+  color: #888;
+  margin-top: 40rpx;
+}

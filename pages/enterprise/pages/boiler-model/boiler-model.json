@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "型号管理",
+  "usingComponents": {
+    "menu": "../../component/customer/movemenu/movemenu"
+  }
+}

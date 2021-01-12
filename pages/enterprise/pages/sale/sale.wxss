@@ -1,0 +1,115 @@
+.selectmenu {
+  bottom: 0rpx;
+  width: 100%;
+  height: 30%;
+
+}
+
+.bumenu {
+  bottom: 0rpx;
+  width: 100%;
+
+}
+
+.section {
+  display: flex;
+  width: 100%;
+  height: 8%;
+  font-size: 35rpx;
+}
+
+.picker {
+  width: 250px;
+  align-items: center;
+  margin: 30rpx auto;
+  height: 60rpx;
+  border: 1px solid #efefef;
+
+}
+
+.quenyButton {
+  background-color: #67c23a;
+  color: white;
+  height: 70rpx;
+  font-size: 30rpx;
+}
+
+.quenyButton1 {
+  height: 10%;
+  font-size: 30rpx;
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 40rpx;
+  color: white;
+  background-color: #67c23a;
+}
+
+.select_box {
+  z-index: 300;
+  display: flex;
+  background: #fff;
+  width: 100%;
+  margin: 30rpx auto;
+  position: relative;
+}
+
+.select {
+
+  box-sizing: border-box;
+  width: 55%;
+  height: 70rpx;
+  border: 1px solid #efefef;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+
+}
+
+.select_text {
+
+  font-size: 30rpx;
+  flex: 1;
+}
+
+.select_img {
+
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.select_img_rotate {
+
+  transform: rotate(180deg);
+}
+
+.option_box {
+
+  margin-left: 18%;
+  position: absolute;
+  top: 70rpx;
+  width: 55%;
+  box-sizing: border-box;
+  height: 20%;
+  overflow-y: auto;
+  border-top: 0;
+  background: #fff;
+  transition: height 0.3s;
+}
+
+.option {
+  display: block;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  padding: 10rpx;
+}
+
+.section1 {
+  margin-top: 13%;
+  display: flex;
+  width: 100%;
+  height: 19%;
+  font-size: 35rpx;
+}

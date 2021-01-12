@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/manage/manage",
+    "pages/index/index",
+    "pages/enterprise/pages/index/index",
+    "pages/enterprise/pages/login/login",
+    "pages/enterprise/pages/boiler-index/boiler-index",
+    "pages/enterprise/pages/product/product",
+    "pages/enterprise/pages/productadd/productadd",
+    "pages/enterprise/pages/auxiliary/auxiliary",
+    "pages/enterprise/pages/auxiliaryadd/auxiliaryadd",
+    "pages/enterprise/pages/sale/sale",
+    "pages/enterprise/pages/boiler-customer/boiler-customer",
+    "pages/enterprise/pages/boiler-customeradd/boiler-customeradd",
+    "pages/enterprise/pages/boiler-model/boiler-model",
+    "pages/enterprise/pages/boiler-modeladd/boiler-modeladd",
+    "pages/enterprise/pages/boileradd/boileradd",
+    "pages/enterprise/pages/productdetail/productdetail",
+    "pages/wifi/wifi",
+    "pages/welcome/welcome"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "简洁软件",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/manage/manage",
+        "text": "添加",
+        "iconPath": "images/add.png",
+        "selectedIconPath": "images/add._selected.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "DTU",
+        "iconPath": "images/setting.png",
+        "selectedIconPath": "images/setting_selected.png"
+      },
+      {
+        "pagePath": "pages/wifi/wifi",
+        "text": "WIFI",
+        "iconPath": "images/wifi.png",
+        "selectedIconPath": "images/wifi_selected.png"
+      },
+      {
+        "pagePath": "pages/enterprise/pages/boiler-index/boiler-index",
+        "text": "管理",
+        "iconPath": "images/manage.png",
+        "selectedIconPath": "images/manage_selected.png"
+      }
+    ],
+    "color": "#888888",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}

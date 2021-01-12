@@ -1,0 +1,24 @@
+
+<view class="wx-popup" >
+  <view class='popup-container'>
+    <view style="width: 100%;margin-top: 40rpx; margin-left: 10px;" class="itemView">
+    <view style="font-size: 15px;  font-size: 35rpx; padding-top: 10rpx;">客户名:</view><input value="{{customer.name}}" style="height:30px;width: 90%;border:1px solid #efefef"  
+    bindinput="userNameInput"/>
+  </view>
+<view style="width: 100%;margin-top: 40rpx; margin-left: 10px;">
+<view style="font-size: 15px; font-size: 35rpx; padding-top: 10rpx;">手机号： </view><input value="{{customer.phone}}" style="height:30px;width: 90%;border:1px solid #efefef" bindinput="phoneInput" />
+  </view>
+  <view style="font-size: 35rpx;width: 100%;margin-top: 40rpx; margin-left: 10px;" class="section">
+  <view style="font-size: 15px; font-size: 35rpx; padding-top: 10rpx;">选择地址：</view>
+  <picker style="height:30px;width: 90%;border:1px solid #efefef" mode="region" bindchange="bindRegionChange"  custom-item="{{customItem}}">
+    <view class="picker">
+      {{customer.province}}-{{customer.city}}-{{customer.district}}
+    </view>
+  </picker>
+</view>
+<view style="width: 100%;margin-top: 40rpx; margin-left: 10px;">
+<view style="font-size: 15px;  font-size: 35rpx; padding-top: 10rpx;">详细地址： </view><input value="{{customer.address}}" style="height:30px;width: 90%;border:1px solid #efefef" bindinput="addressInput" />
+  </view>
+   <button class="quenyButton1" bindtap='saveBtnClick'>保存</button>
+  </view>
+</view>

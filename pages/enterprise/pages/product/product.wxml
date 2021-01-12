@@ -1,0 +1,51 @@
+<wxs src="../../utils/power.wxs" module="util" /> 
+<view class="zmenu">
+	<view class="noData" wx:if="{{productList.length==0}}">
+		<view>暂无数据</view>
+	</view>
+	<view wx:else>
+		<view class="menu" wx:for="{{productList}}" wx:for-item="item" wx:key="{{code}}" bindtap="productClick" data-bean="{{item}}">
+			<view style=" margin-left: 3%; width: 100%;  margin-top: 3%;">
+				<view style="font-size: 20px; padding-left: 2%">
+					控制器/柜：{{item.controllerNo}}
+				</view>
+			</view>
+			<view style="margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%; ">
+				<view style="width: 50%;padding-left: 2%;">
+					类型：{{util.productCategory(item.productCategoryId,productCategoryList)}}
+				</view>
+			</view>
+			<view style="margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%; ">
+				<view style="width: 50%;padding-left: 2%;">
+					客户：{{item.customerName}}
+				</view>
+			</view>
+			<view style="margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%; ">
+				<view style="width: 50%;padding-left: 2%;">
+					燃料：{{util.power(item.power)}}
+				</view>
+				<view style="width: 50%;padding-left: 2%;">
+					介质：{{util.media(item.media)}}
+				</view>
+			</view>
+			<view style="margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%; ">
+				<view style="padding-left: 2%;">
+					吨位：{{item.tonnageNum?item.tonnageNum:''}}
+				</view>
+			</view>
+			<view style="margin-left: 3%;font-size: 15px; width: 100%;display: flex; margin-top: 3%; ">
+				<view style="padding-left: 2%;">
+					质保到期：{{item.saleDate?item.saleDate:''}}</view>
+			</view>
+		</view>
+		<modal title="搜索控制器/柜" confirm-text="搜索" cancel-text="取消" hidden="{{!menuShow}}" bindconfirm="searchBtnClick" bindcancel="modalCancel">
+			<label>
+				<view class="tellsection">
+					<input class="tellinput" bindinput="controllerNoInput" placeholder="输入控制器/柜编号"/>
+				</view>
+			</label>
+		</modal>
+	</view>
+</view>
+
+<menu class="menulist" bindmenuItemClick="menuItemClick" mainmodel="{{mainmodel}}" menulist="{{menulist}}"></menu>

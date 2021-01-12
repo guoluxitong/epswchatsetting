@@ -1,0 +1,86 @@
+
+<view class="weui-cells weui-cells_after-title">
+
+  <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+    <view class="weui-cell__hd">
+      <view class="weui-label">设备类型：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindDeviceType" range="{{DeviceTypeArray}}" range-key="{{'typeName'}}">
+        <view class="weui-select weui-select_in-select-after">{{DeviceType}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+    <view class="weui-cell__hd">
+      <view class="weui-label">厂商：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindDeviceFactory" range="{{DeviceFactoryArray}}" range-key="{{'factory'}}">
+        <view class="weui-select weui-select_in-select-after">{{DeviceFactory}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+    <view class="weui-cell__hd">
+      <view class="weui-label">系列/型号：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindDeviceLine" range="{{DeviceLineArray}}" range-key="{{'line'}}">
+        <view class="weui-select weui-select_in-select-after">{{DeviceLine}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+    <view class="weui-cell__hd">
+      <view class="weui-label">定制信息：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindDeviceAttr" range="{{DeviceAttrArray}}" range-key="{{'attr'}}">
+        <view class="weui-select weui-select_in-select-after">{{DeviceAttr}}</view>
+      </picker>
+    </view>
+  </view>
+
+
+  <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+    <view class="weui-cell__hd">
+      <view class="weui-label">协议名称：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindDeviceMap" range="{{DeviceMapArray}}" range-key="{{'title'}}">
+        <view class="weui-select weui-select_in-select-after">{{deviceMapTitle}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_active">
+      <view class="weui-cell__hd">
+        <view class="weui-label">设备编号：</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="设备编号" bindinput="deviceNoInput" />
+      </view>
+    </view>
+  </view>
+  
+
+  <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+    <view class="weui-cell__hd">
+      <view class="weui-label">是否可控：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindPickerChange_canctl" range="{{canctlarray}}">
+        <view class="weui-select weui-select_in-select-after">{{canctlarray[canctl]}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view style="    padding： 3%;">
+    <a class="weui-btn weui-btn_primary" bindtap="saveSetting">保存设置</a>
+  </view>
+</view>

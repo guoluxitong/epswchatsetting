@@ -1,0 +1,59 @@
+var power = function (power) {
+  var powerList = [
+    { value: 0, label: "油气" },
+    { value: 1, label: "电" },
+    { value: 2, label: "煤" },
+    { value: 3, label: "生物质" },
+    { value: 30, label: "余热" },
+  ]
+  for (var i = 0; i < powerList.length; i++) {
+    if (power == powerList[i].value) {
+      return powerList[i].label;
+    } 
+    if (power<0){
+      return "油气"
+    }
+  }
+};
+var media = function (media) {
+var mediaList=[
+    {value:0, label:"热水"},
+  { value: 1, label: "蒸汽" },
+  { value: 2, label: "导热油" },
+  { value: 3, label: "热风" },
+  { value: 4, label: "真空" },
+]
+  for (var i = 0; i < mediaList.length; i++) {
+    if (media == mediaList[i].value) {
+      return mediaList[i].label;
+    } 
+    if (media < 0) {
+      return "热水"
+    }
+  }
+};
+var isSell = function (Sell) {
+  var isSellList = [
+    { value: 0, label: "否" },
+    { value: 1, label: "是" },
+   
+  ]
+  for (var i = 0; i < isSellList.length; i++) {
+    if (Sell == isSellList[i].value) {
+      return isSellList[i].label;
+    } 
+  }
+};
+var productCategory = function (productCategoryId, productCategoryList) {
+  for (var i = 0; i < productCategoryList.length; i++) {
+    if (productCategoryId === productCategoryList[i].id) {
+      return productCategoryList[i].name;
+    } 
+  }
+};
+module.exports = {
+  power: power,
+  isSell: isSell,
+  productCategory: productCategory,
+   media: media
+};

@@ -1,0 +1,61 @@
+<wxs src="../../utils/power.wxs" module="util" />
+<view class="zmenu" >
+<view class="menu" wx:for="{{productList}}" wx:for-item="item" wx:key="{{code}}"bindtap="Click1" data-bean="{{item}}">
+<view style=" margin-left: 3%; width: 100%;  margin-top: 3%;">
+<view  style="font-size: 20px; padding-left: 2%;">锅炉编号：{{item.boilerNo}}</view>
+</view>
+<view style=" margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%; ">
+<view style="padding-left: 2%;">锅炉控制器/柜：{{item.controllerNo}}</view>
+</view>
+
+<view style="margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%; ">
+<view style="width: 50%;padding-left: 2%;">燃料：{{util.power(item.power)}}</view>
+<view style=" width: 50%;">介质：{{util.media(item.media)}}</view>
+</view>
+
+
+<view style="margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%; ">
+<view style="width: 100%;padding-left: 2%;">是否售出：{{util.isSell(item.isSell)}}</view>
+</view>
+<view style="margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%; ">
+<view wx:if="{{item.customerName==null}}" style=" width: 100%;padding-left: 2%">客户：</view>
+<view wx:if="{{item.customerName!=null}}"  style=" width: 100%;padding-left: 2%">客户：{{item.customerName}}</view>
+</view>
+<view style=" margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%; ">
+<view style="padding-left: 2%;">锅炉型号：{{util.productCategory(item.productCategoryId,productCategoryList)}}</view>
+</view>
+<view style=" margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%;">
+<view wx:if="{{item.tonnageNum!=null}}" style="padding-left: 2%;">吨位：{{item.tonnageNum}}</view>
+<view wx:if="{{item.tonnageNum==null}}" style="padding-left: 2%;">吨位：</view>
+</view>
+<view style=" margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%;">
+<view wx:if="{{item.saleDate==null}}" style="padding-left: 2%;">售出时间：</view>
+<view  wx:if="{{item.saleDate!=null}}" style="padding-left: 2%;">售出时间：{{item.saleDate}}</view>
+</view>
+
+<view style="margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%; ">
+  <view style="padding-left: 2%;">锅炉名称：{{item.boilerName}}</view>
+</view>
+<view style="margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%; ">
+  <view style="padding-left: 2%;">维保周期：{{item.serviceCycle}}</view>
+</view>
+
+<view style="margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%; ">
+  <view wx:if="{{item.serviceEndDate!=null}}" style="padding-left: 2%;">质保到期时间：{{item.serviceEndDate}}</view>
+<view wx:if="{{item.serviceEndDate==null}}" style="padding-left: 2%;">质保到期时间：</view>
+</view>
+
+<view style="margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%; ">
+<view wx:if="{{item.street!=null}}"style="padding-left: 2%;" >售出地址：{{item.street}}</view>
+<view wx:if="{{item.street==null}}" style="padding-left: 2%;"  >售出地址：</view>
+</view>
+<view style="margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%; ">
+  <view wx:if="{{item.mark!=null}}" style="width: 100%;padding-left: 2%;">备注：{{item.mark}}</view>
+<view wx:if="{{item.mark==null}}" style="width: 100%;padding-left: 2%;">备注：</view>
+</view>
+</view>
+</view>
+
+<view class="noData" wx:if="{{productList.length==0}}">
+<view>暂无数据</view>
+</view>

@@ -1,0 +1,59 @@
+
+<view  class="bumenu">
+ 
+ <view class='select_box1'>
+   <view style="font-size: 15px; font-size: 35rpx; padding-top: 10rpx; padding-left: 10px; "> 大类：</view>
+ <view class='select1' catchtap='selectTap1'>
+  <text class='select_text1'>{{partcategoryList[index1].name}}</text>
+  <image class='select_img1 {{show1&&"select_img_rotate1"}}' src='../../images/customer/xia.png'></image>   
+ </view>
+ <view class='option_box1' style='height:{{show1?(partcategoryList.length>5?300:partcategoryList.length*60):0}}rpx;'>
+  <text class='option1' style='{{index==partcategoryList.length-1&&"border:0;"}}' wx:for='{{partcategoryList}}' wx:key='this' data-index='{{index}}' data-bean="{{item}}" catchtap='optionTap1'>{{item.name}}</text>
+ </view>
+</view>
+
+ <view class='select_box2'>
+   <view style="font-size: 15px;font-size: 35rpx; padding-top: 10rpx; padding-left: 10px; "> 小类：</view>
+ <view class='select2' catchtap='selectTap2'>
+  <text class='select_text2'>{{partsubcategoryList[index2].name}}</text>
+  <image class='select_img2 {{show2&&"select_img_rotate2"}}' src='../../images/customer/xia.png'></image>   
+ </view>
+ <view class='option_box2' style='height:{{show2?(partsubcategoryList.length>5?300:partsubcategoryList.length*60):0}}rpx;'>
+  <text class='option2' style='{{index==partsubcategoryList.length-1&&"border:0;"}}' wx:for='{{partsubcategoryList}}' wx:key='this' data-index='{{index}}' data-bean="{{item}}" catchtap='optionTap2'>{{item.name}}</text>
+ </view>
+</view>
+
+
+
+ <view style="width: 80%;margin-top: 20rpx;margin-left: 10%;">
+  <view style="font-size: 15px; font-size: 35rpx; padding-top: 10rpx;  "> 品牌：</view>
+ <input class="input" value="{{auliliaryList.brandName}}" style="height:30px; border:1px solid #efefef;width: 100%" type="text"  
+    bindinput="brandNameInput"/>
+ </view>
+ 
+ <view  style="width: 80%;margin-top: 20rpx;margin-left: 10%;">
+  <view style="font-size: 15px; font-size: 35rpx; padding-top: 10rpx; "> 型号：</view>
+ <input class="input" value="{{auliliaryList.modelName}}" style="height:30px; border:1px solid #efefef;width: 100%" type="text"  
+    bindinput="modelNameInput"/>
+ </view>
+
+ <view style="width: 80%;margin-top: 20rpx;margin-left: 10%;">
+  <view style="font-size: 15px; font-size: 35rpx; padding-top: 10rpx;  "> 数量：</view>
+ <input class="input" value="{{auliliaryList.amountOfUser}}" style="height:30px; border:1px solid #efefef;width: 100%" type="text" 
+    bindinput="amountOfUserInput"/>
+ </view>
+
+ <view style="width: 80%;margin-top: 20rpx;margin-left: 10%;">
+  <view style="font-size: 15px;font-size: 35rpx; padding-top: 10rpx;  "> 供货厂家：</view>
+ <input class="input" value="{{auliliaryList.supplier}}" style="height:30px; border:1px solid #efefef;width: 100%" type="text" 
+    bindinput="supplierInput"/>
+ </view>
+
+  <view style="width: 80%;margin-top: 20rpx;margin-left: 10%;">
+  <view style="font-size: 15px; font-size: 35rpx; padding-top: 10rpx;  "> 备注：</view>
+ <textarea class="input" auto-height="true" value="{{auliliaryList.remarks}}" style=" border:1px solid #efefef;width:100%"  
+    bindinput="remarksInput"/>
+ </view>
+
+<button class="quenyButton1" bindtap='quenyButton1'>确定</button>
+</view>

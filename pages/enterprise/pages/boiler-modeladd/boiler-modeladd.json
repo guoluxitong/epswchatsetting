@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "客户",
+  "usingComponents": {
+    "menu": "../../component/customer/movemenu/movemenu"
+  }
+}

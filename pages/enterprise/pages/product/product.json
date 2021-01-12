@@ -1,0 +1,5 @@
+{ "navigationBarTitleText": "控制柜信息",
+  "usingComponents": {
+    "menu": "../../component/customer/movemenu/movemenu"
+  }
+}

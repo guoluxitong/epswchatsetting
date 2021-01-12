@@ -1,0 +1,36 @@
+
+<view class="boilerNo" >
+  <view  style="font-size: 20px; padding-left: 5%;">{{product.boilerNo}}</view>
+</view>
+<view class="zmenu" >
+<view class="menu" wx:for="{{auliliaryList}}" wx:for-item="item" wx:key="{{code}}"bindtap="Click1" data-bean="{{item}}">
+<view style=" margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%; ">
+<view style="width: 50%; padding-left: 2%;">大类：{{item.partCategoryName}}</view>
+<view style="width: 50%;">小类：{{item.partSubCategoryName}}</view>
+</view>
+<view style=" margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%;">
+<view  style="width: 50%; padding-left: 2%;">品牌:{{item.brandName}}</view>
+</view>
+<view style="margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%; ">
+<view style="width: 50%;padding-left: 2%;">数量:{{item.amountOfUser}}</view>
+</view>
+<view style="margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%; ">
+
+<view style="padding-left: 2%;">供货厂家:{{item.supplier}}</view>
+</view>
+<view style=" margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%;">
+<view  style="padding-left: 2%;">型号:{{item.modelName}}</view>
+</view>
+<view style="margin-left: 3%;font-size: 15px; width: 100%; display: flex; margin-top: 3%; ">
+<view style="padding-left: 2%;">备注:{{item.remarks}}</view>
+</view>
+</view>
+</view>
+
+
+<view class="noData" wx:if="{{auliliaryList.length==0}}">
+<view>暂无数据</view>
+</view>
+
+
+<menu class="menulist" bindmenuItemClick="menuItemClick" mainmodel="{{mainmodel}}" menulist ="{{menulist}}" ></menu>

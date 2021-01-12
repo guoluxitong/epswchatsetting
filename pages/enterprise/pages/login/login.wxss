@@ -1,0 +1,173 @@
+
+button::after {
+ 
+  border: none;
+ 
+}
+
+ 
+.toast-box {
+ 
+  width: 100%;
+ 
+  height: 100%;
+ 
+  opacity: 1;
+ 
+  position: fixed;
+ 
+  top: 0px;
+ 
+  left: 0px;
+ 
+}
+ 
+
+ 
+.toastbg {
+ 
+  opacity: 0.2;
+ 
+  background-color: black;
+ 
+  position: absolute;
+ 
+  width: 100%;
+ 
+  min-height: 100vh;
+ 
+}
+ 
+.yanzheng{
+   height: 50px;
+   width: 100%;
+   
+   padding-top: 8px
+}
+.yanzheng input{
+  border-bottom: 1px solid #eee;
+  margin-left: 8px;
+  width: 55%;
+  display: inline-block;
+  color: #999;
+  padding-bottom: 5px;
+  font-size: 12px;
+}
+.yanzheng .Code{
+ border: 1px solid #FF6800;
+ width: 35%;
+ display: inline-block;
+ font-size: 12px;
+ color: #FF6800;
+
+}
+.quenyButton1{
+ background-color:#67c23a;
+ color: white;
+ margin-top: 40rpx;
+ font-size: 30rpx;
+ height: 10%;
+  width: 70%;
+   margin-left: 15%;  
+}
+.toast-box {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+.toastbg {
+  opacity: 0.2;
+  background-color: black;
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.showToast {
+  position: absolute;
+  opacity: 1;
+  width: 70%; 
+  margin-left: 15%;
+  margin-top: 40%;
+}
+ 
+
+.toastbg {
+  opacity: 0.2;
+  top:0;  
+  background-color: black;
+  overflow: hidden;   
+  /*要显示在wrap的上面 */   
+  z-index: 1;   
+  position: fixed;  
+  width: 100%;
+  min-height: 100vh;
+}
+.showToast {
+  z-index: 50;   
+  position: fixed;
+  /* width: 54%;
+ left: 13%; */
+  top: 17%;
+}
+
+.toast-title {
+ 
+  padding-left: 5%;
+ 
+  background-color: white;
+ 
+  padding-top: 2vh;
+ 
+  padding-bottom: 2vh;
+ 
+  border-top-right-radius: 16rpx;
+ 
+  border-top-left-radius: 16rpx;
+ 
+}
+ 
+.toast-button {
+  display: flex;
+}
+.button1 {
+  width: 50%;
+}
+.button2 {
+  width: 50%;
+}
+
+ 
+.button1 button {
+ 
+  width: 100%;
+ 
+  background-color: white;
+ 
+  color: red;
+ 
+  border-radius: 0px;
+ 
+  border-bottom-left-radius: 16rpx;
+ 
+}
+ 
+
+ 
+.button2 button {
+ 
+  width: 100%;
+ 
+  background-color: white;
+ 
+  color: black;
+ 
+  border-radius: 0px;
+ 
+  border-bottom-right-radius: 16rpx;
+ 
+}
+ 

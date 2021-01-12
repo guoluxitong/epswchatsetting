@@ -1,0 +1,73 @@
+/**index.wxss**/
+page{
+  height: 100%;
+}
+
+.z-menus {
+   height: 100%;
+  padding-top: 5px;
+ background-color: rgba(191, 195, 241, 0.3);
+}
+.menus {
+  margin-top: 10px;
+  margin-left: 3%;
+  width: 94%;
+  	border-radius: 5%;
+ background-color: white;
+}
+.menusInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+     font-size: 20px
+}
+.menusInfo-name {
+  margin-top: 10px;
+  margin-left: 21px;
+  width: 50%;
+}
+.menuschilds {
+  margin-left: 10%;
+ 	display: flex;
+	flex-wrap: wrap;
+	
+}
+.menuschild {
+   width: 26%;
+    margin-left: 40rpx;
+}
+.menuschild-name {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  	line-height: 20rpx;
+	text-align: center;
+}
+.imagesize{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.imag {
+  margin-top: 10px; 
+  	background: rgba(191, 195, 241, 0.3);
+  width: 30px;
+  height: 30px;
+  	border-radius: 50%;
+}
+.quenyButton1{
+ background-color:#67c23a;
+ color: white;
+ margin-top: 40rpx;
+ font-size: 30rpx;
+ height: 35px;
+  width: 100px;
+   margin-bottom: 20px;
+}
+.z-menu-1{
+  position: fixed;
+  font-size: 40rpx;
+ top: 40%;
+width: 50%;
+margin-left: 25%;
+}

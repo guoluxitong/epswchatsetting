@@ -1,0 +1,10 @@
+
+.quenyButton1{
+ background-color:#67c23a;
+ color: white;
+ margin-top: 40rpx;
+ font-size: 30rpx;
+ height: 10%;
+  width: 60%;
+   margin-left: 20%;  
+}

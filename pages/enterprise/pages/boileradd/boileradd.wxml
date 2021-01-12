@@ -1,0 +1,8 @@
+
+  <view class='popup-container'>
+<view style="width: 100%;  display: flex; margin-left: 10px;">
+<input placeholder="请输入控制器/柜编号" style="height:35px; margin-top: 40rpx;width: 70%;border:1px solid #efefef" bindinput="nameInput" />
+<button class="quenyButton" bindtap='quenyButton1'>添加</button>
+  </view>
+   <button class="quenyButton1" bindtap='addDevice'>扫一扫添加</button>
+  </view>

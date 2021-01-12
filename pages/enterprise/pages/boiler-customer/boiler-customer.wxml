@@ -1,0 +1,16 @@
+<view class="zmenu">
+
+	<view class="menu" wx:for="{{customerList}}" wx:for-item="item" wx:key="{{code}}" bindtap="customerClick" data-bean="{{item}}">
+		<view style=" margin-left: 3%;font-size: 15px;margin-top: 3%; ">
+			<view style="padding-left: 2%">{{item.name}}</view>
+			<view style="padding-left: 2%">电话：{{item.phone?item.phone:''}}</view>
+			<view style="padding-left: 2%">{{item.province?item.province:''}}{{item.city?item.city:''}}{{item.district?item.district:''}}{{item.address?item.address:''}}</view>
+		</view>
+	</view>
+</view>
+
+<view class="noData" wx:if="{{customerList.length==0}}">
+	<view>暂无数据</view>
+</view>
+
+<menu class="menulist" bindmenuItemClick="menuItemClick" mainmodel="{{mainmodel}}" menulist="{{menulist}}"></menu>

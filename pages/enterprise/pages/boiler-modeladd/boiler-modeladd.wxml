@@ -1,0 +1,7 @@
+
+  <view class='popup-container'>
+<view style="width: 80%; margin-left: 10%;">
+<view style="font-size: 15px;   padding-top: 10rpx;">型号名称： </view><input value="{{productcategory.name}}" style="height:30px; margin-top: 40rpx;width: 100%;border:1px solid #efefef" bindinput="nameInput" />
+  </view>
+   <button class="quenyButton1" bindtap='save'>保存</button>
+  </view>

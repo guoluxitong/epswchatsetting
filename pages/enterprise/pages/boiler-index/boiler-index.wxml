@@ -1,0 +1,43 @@
+<!--index.wxml-->
+<view class="z-menus" wx:if="{{orgType==1}}">
+	<view class="menus">
+		<view class="menusInfo">
+			<view class="menusInfo-name">控制柜</view>
+		</view>
+		<view class="menuschilds">
+			<view bindtap='product'>
+				<view class="imagesize">
+					<image class="imag" src="../../images/customer/product.png"></image>
+				</view>
+
+				<view class="menuschild-name">控制柜信息</view>
+			</view>
+			<view class="menuschilds">
+				<view bindtap='customerList'>
+					<view class="imagesize">
+						<image class="imag" src="../../images/customer/boiler-model.png"></image>
+					</view>
+
+					<view class="menuschild-name">客户信息</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="menus">
+		<view class="menusInfo">
+			<view class="menusInfo-name">邀请</view>
+		</view>
+		<view class="menuschilds">
+			<view bindtap='menus'>
+				<view class="imagesize">
+					<image class="imag" src="../../images/customer/invcode.png"></image>
+				</view>
+
+				<view class="menuschild-name">获取邀请码</view>
+			</view>
+		</view>
+	</view>
+</view>
+<view class="z-menu-1" wx:if="{{orgType!=1}}">
+	您不属于该系统用户
+</view>

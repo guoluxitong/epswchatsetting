@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "辅机信息",
+  "usingComponents": {
+    "menu": "../../component/customer/movemenu/movemenu"
+  }
+}

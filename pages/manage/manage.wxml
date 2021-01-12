@@ -1,0 +1,56 @@
+<view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after" hidden="{{!super}}">
+	<view class="weui-cell__hd">
+		<view class="weui-label">企业：</view>
+	</view>
+	<view class="weui-cell__bd">
+		<picker bindchange="bindEnterpriseChange" range="{{enterpriseList}}" range-key="{{'enterpriseName'}}">
+			<view class="weui-select weui-select_in-select-after">{{enterpriseList[enterpriseIndex].enterpriseName}}</view>
+		</picker>
+	</view>
+</view>
+<view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+	<view class="weui-cell__hd">
+		<view class="weui-label">客户：</view>
+	</view>
+	<view class="weui-cell__bd">
+		<picker bindchange="bindCustomerChange" range="{{customerList}}" range-key="{{'customerName'}}">
+			<view class="weui-select weui-select_in-select-after">{{customerList[customerIndex].customerName}}</view>
+		</picker>
+	</view>
+</view>
+<view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+	<view class="weui-cell__hd">
+		<view class="weui-label">客户编号：</view>
+	</view>
+	<view class="weui-cell__bd">
+		<picker bindchange="bindCodeChange" range="{{codeList}}" range-key="{{'code'}}">
+			<view class="weui-select weui-select_in-select-after">{{codeList[codeIndex].code}}</view>
+		</picker>
+	</view>
+</view>
+<view class="weui-cell weui-cell_active">
+	<view class="weui-cell__hd">
+		<view class="weui-label">最后设备编号:</view>
+	</view>
+	<view class="weui-cell__bd">
+		{{lastDeviceNo}}
+	</view>
+</view>
+<view class="weui-cell weui-cell_active">
+	<view class="weui-cell__hd">
+		<view class="weui-label">设备编号：</view>
+	</view>
+	<view class="weui-cell__bd">
+		<input class="weui-input" placeholder="编号数值，如：23" type="number" bindinput="inputStartNo" value="{{startNo}}" />
+	</view>
+</view>
+<!-- <view class="weui-cell weui-cell_active">
+	<view class="weui-cell__hd">
+		<view class="weui-label">结束编号：</view>
+	</view>
+	<view class="weui-cell__bd">
+		<input class="weui-input" placeholder="结束编号" type="number"  bindinput="inputEndNo" value="{{endNo}}" />
+	</view>
+</view> -->
+<button type="primary" bindtap="submit" style="width: 85%;">提交</button>
+

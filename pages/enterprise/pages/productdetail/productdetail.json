@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "锅炉详情",
+  "usingComponents": {
+    "menu": "../../component/customer/movemenu/movemenu"
+  }
+}
