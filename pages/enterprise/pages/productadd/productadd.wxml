@@ -26,9 +26,5 @@
 			</view>
 		</picker>
 	</view>
-	<view style="width: 80%;margin-top: 20rpx;margin-left: 10%;">
-		<view style="  font-size: 15px;  padding-top: 10rpx; ">备注：</view>
-		<textarea class="input" value="{{product.mark}}" style="  border:1px solid #efefef;width: 100%" bindinput="markInput" />
-		</view>
-<button class="quenyButton1" bindtap='saveBtnClick'>保存</button>
+	<button class="quenyButton1" bindtap='saveBtnClick'>保存</button>
 </view>

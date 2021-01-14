@@ -28,8 +28,9 @@ Page({
       userId: app.globalData.enterprise.userId,
       isSell: 1,
       productCategoryName: null,
-      roleIdArray: { roleId: null, roleName: null, },
-
+      roleIdArray: {
+        roleId: null, roleName: null
+      }
     }
   },
   /**
@@ -70,7 +71,7 @@ Page({
         }
         that.setData({
           customers: res.data.data.list,
-          index:cindex
+          index: cindex
         })
       }
     })
@@ -86,12 +87,6 @@ Page({
     let that = this
     that.setData({
       "product.saleDate": e.detail.value,
-    })
-  },
-  markInput: function (e) {
-    let that = this
-    that.setData({
-      "product.mark": e.detail.value,
     })
   },
   bindPickerChange(e) {
