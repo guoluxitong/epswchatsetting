@@ -168,85 +168,120 @@ Page({
       }
     })
   },
+  
   onLoad: function (options) {
-
     var that = this
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          wx.login({
-            success: function (res) {
-              var code = res.code;//登录凭证
-              if (code) {
-                //2、调用获取用户信息接口
-                wx.getUserInfo({
-                  success: function (res) {
-                    //3.请求自己的服务器，解密用户信息 获取unionId等加密信息
-                    wx.request({
-                      url: app.globalData.webapi + '/wechat/device/setting/getUnionId',
-                      method: 'get',
-                      header: {
-                        'content-type': 'application/x-www-form-urlencoded'
-                      },
-                      data: { encryptedData: res.encryptedData, iv: res.iv, code: code },
-                      success: function (data) {
-                        var unionId = data.data.data.unionId
-                        wx.request({
-                          url: app.globalData.webapi + '/wechat/employee/find/unionId',
-                          method: "GET",
-                          data: {
-                            unionId: unionId,
-                          },
-                          header: {
-                            'content-type': 'application/x-www-form-urlencoded'
-                          },
-                          success: function (res) {
-                            console.log(res)
-                            var orgId = res.data.data.orgId
-                            if (orgId == 1000007) {
-                              that.setData({
-                                super: true
-                              })
-                            }
-                            wx.request({
-                              url: app.globalData.webapi + '/webapi/datacenter/core/enterprise/customer/list',
-                              method: "GET",
-                              data: {
-                                enterpriseId: orgId,
-                              },
-                              header: {
-                                'content-type': 'application/x-www-form-urlencoded'
-                              },
-                              success: function (res) {
-                                that.setData({
-                                  customerList: res.data.data
-                                });
-                              }
-                            })
-                          }
-                        })
-
-                      },
-                      fail: function (ee) {
-                        console.log('系统错误')
-                        console.log(ee)
-                      }
-                    })
+    wx.login({
+      success: function (res) {
+        wx.request({
+          //获取openid接口  
+          url: 'https://apis.sdcsoft.com.cn/wechat/device/setting/getopenid',
+          data: {
+            js_code: res.code,
+          },
+          method: 'GET',
+          success: function (res) {
+            var openid = res.data.openid
+            wx.request({
+              //获取openid接口 
+              url: 'https://apis.sdcsoft.com.cn/webapi/enterprise/user/find/openId',
+              data: {
+                openId: openid,
+              },
+              method: 'GET',
+              header: {
+                "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
+              },
+              success: function (res) {
+                var orgId = res.data.data.orgId
+                app.globalData.enterprise.orgId=orgId
+                if (orgId == 1000007) {
+                  that.setData({
+                    super: true
+                  })
+                }     
+                wx.request({
+                  url: app.globalData.webapi + '/webapi/datacenter/core/enterprise/customer/list',
+                  method: "GET",
+                  data: {
+                    enterpriseId: orgId,
                   },
-                  fail: function () {
-                    console.log('获取用户信息失败')
+                  header: {
+                    'content-type': 'application/x-www-form-urlencoded'
+                  },
+                  success: function (res) {
+                    that.setData({
+                      customerList: res.data.data
+                    });
                   }
                 })
-
-              } else {
-                console.log('获取用户登录态失败！' + r.errMsg)
               }
-            },
-            fail: function () {
-              console.log('登陆失败')
+            })
+
+          }
+        })
+      }
+    })
+    
+    wx.getSetting({
+      success: res => {
+        console.log(res)
+        wx.login({
+          success: function (res) {
+            var code = res.code;//登录凭证
+            if (code) {
+              //2、调用获取用户信息接口
+              wx.getUserInfo({
+                success: function (res) {
+                  //3.请求自己的服务器，解密用户信息 获取unionId等加密信息
+                  wx.request({
+                    url: app.globalData.webapi + '/wechat/device/setting/getUnionId',
+                    method: 'get',
+                    header: {
+                      'content-type': 'application/x-www-form-urlencoded'
+                    },
+                    data: { encryptedData: res.encryptedData, iv: res.iv, code: code },
+                    success: function (data) {
+                      var unionId = data.data.data.unionId
+                      wx.request({
+                        url: app.globalData.webapi + '/wechat/employee/find/unionId',
+                        method: "GET",
+                        data: {
+                          unionId: unionId,
+                        },
+                        header: {
+                          'content-type': 'application/x-www-form-urlencoded'
+                        },
+                        success: function (res) {
+                          console.log(res)
+                          app.globalData.enterprise.userId=res.data.data.userId
+                          app.globalData.enterprise.roleId=res.data.data.roleId
+                          app.globalData.enterprise.roleName=res.data.data.orgId
+                          app.globalData.enterprise.orgId=res.data.data.orgId
+                          
+                        }
+                      })
+
+                    },
+                    fail: function (ee) {
+                      console.log('系统错误')
+                      console.log(ee)
+                    }
+                  })
+                },
+                fail: function (eee) {
+                  console.log(eee)
+                }
+              })
+
+            } else {
+              console.log('获取用户登录态失败！' + r.errMsg)
             }
-          })
-        }
+          },
+          fail: function () {
+            console.log('登陆失败')
+          }
+        })
       }
     })
     wx.request({

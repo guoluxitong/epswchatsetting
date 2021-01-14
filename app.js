@@ -13,6 +13,7 @@ App({
           method: 'GET',
           success: function (res) {
             var openid = res.data.openid
+            that.globalData.enterprise.openId=openid
             wx.request({
               //获取openid接口 
               url: 'https://apis.sdcsoft.com.cn/webapi/enterprise/user/find/openId',
@@ -49,7 +50,6 @@ App({
                                   },
                                   data: { encryptedData: res.encryptedData, iv: res.iv, code: code },
                                   success: function (data) {
-                                    console.log(data.data.data.unionId)
                                     that.globalData.unionId = data.data.data.unionId
                                     that.globalData.enterprise.openId=data.data.data.openid
                                       
@@ -87,7 +87,7 @@ App({
     
   },
   globalData: {
-    webapi:'http://localhost:8088', //'https://apis.sdcsoft.com.cn'
+    webapi:'https://apis.sdcsoft.com.cn',//'http://127.0.0.1:8088', 
     userInfo: null,
     enterprise:{
       orgId: null,

@@ -61,7 +61,7 @@
 				<view class="weui-label">站号：</view>
 			</view>
 			<view class="weui-cell__bd">
-				<input class="weui-input" placeholder="请输入站号" bindinput="stationNoInput" />
+				<input class="weui-input" type="number" placeholder="请输入站号" bindinput="stationNoInput" />
 			</view>
 		</view>
 	</view>

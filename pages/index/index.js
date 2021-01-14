@@ -24,6 +24,9 @@ Page({
     sim:"",
     canctlarray: ["不可控", "可控"],
     canctl: 0,
+    power:0,
+    media:0,
+    canctl:0,
   },
   bindPickerChange_canctl: function (e) {
     var that = this
@@ -65,17 +68,18 @@ Page({
       })
       return
     }
+   
     wx.request({
       url: app.globalData.webapi + '/wechat/device/modify',
       data: {
-        power: 0,
-        media: 0,
+        power: that.data.power,
+        media: that.data.media,
         prefix: that.data.prefix,
         deviceNo: that.data.deviceNo,
         status: 1,
         iMEI: that.data.sim,
         cnId:  that.data.cnId,
-        isCanCtl: 0,
+        isCanCtl: that.data.canctl,
       },
       header: {
         "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
@@ -84,16 +88,121 @@ Page({
       success: function (res) {
         console.log(res)
         if(res.data.code==0){
-          wx.showToast({
-            title: '修改成功',
-            icon: 'success',
-            duration: 2000,
-            success(res) {
-              wx.switchTab({
-                url: '../index/index'
+          wx.request({
+            //获取openid接口   
+            url: app.globalData.webapi + '/devicesetting/setting/create',
+            data: {
+              deviceMapId: that.data.deviceMapId,
+              deviceMapTitle: that.data.deviceMapTitle,
+              params: that.data.params,
+              deviceNo: that.data.deviceNo,
+              stationNo: that.data.stationNo,
+            },
+            method: 'POST',
+            success: function (res) {
+              wx.request({
+                //获取openid接口   
+                url: app.globalData.webapi + '/devicesetting/setting/get',
+                data: {
+                  deviceNo: that.data.deviceNo
+                },
+                method: 'POST',
+                header: {
+                  "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
+                },
+                success: function (res) { 
+                  if (res.data.code == 1) {
+                    wx.showToast({
+                      title: res.data.msg,
+                      icon: 'none',
+                      duration: 2000
+                    })
+                  } else {
+                    var atString = res.data.data
+                    wx.request({
+                      //获取openid接口   
+                      url: 'https://wx.dtu.aichaowei.com/api/setting/create?signKey=5dc91732cf6525c80c9794dd',
+                      data: {
+                        atString: atString,
+                        deviceNo:  that.data.deviceNo,
+                        sn:  that.data.sn
+                      },
+                      header: {
+                        "Content-Type": "application/json"
+                      },
+                      method: 'POST',
+                      success: function (res) {
+                        console.log(res)
+                        if (res.data.code == 1) {
+                          wx.showToast({
+                            title: res.data.message,
+                            icon: 'none',
+                            duration: 2000
+                          })
+                        } else {
+                          wx.showToast({
+                            title: res.data.message,
+                            icon: 'success',
+                            duration: 2000
+                          })
+                          wx.request({
+                            //获取openid接口   
+                            url: app.globalData.webapi + '/webapi/enterprise/product/search?pageNum=1&pageSize=5',
+                            data: {
+                              boilerNo: "",
+                              controllerNo: that.data.deviceNo,
+                              customerName: null,
+                              isSell: null,
+                              media: null,
+                              power: null,
+                              productCategoryId: null,
+                              productCategoryName: "",
+                              saleDate: null,
+                              tonnageNum: null,
+                              userId: app.globalData.enterprise.employeeId,
+                            },
+                      
+                            method: 'post',
+                            success: function (data) {
+                              console.log(data)
+                              let arr = data.data.data.list
+                              
+                                if (arr.length == 0) {
+                                  that.setData({
+                                    "product.boilerNo":that.data.DeviceType+"_"+that.data.DeviceFactory+"_"+that.data.DeviceLine+"_"+that.data.DeviceAttr,
+                                    "product.controllerNo":that.data.deviceNo,
+                                    "product.userId": app.globalData.enterprise.userId,
+                                    "product.roleIdArray.roleId": app.globalData.enterprise.roleId,
+                                    "product.roleIdArray.roleName": app.globalData.enterprise.roleName,
+                                    "product.isSell": 0,
+                                    "product.orgId": app.globalData.enterprise.orgId,
+                                  })
+                                  wx.request({
+                                    //获取openid接口   
+                                    url: app.globalData.webapi + '/webapi/enterprise/product/create',
+                                    data: that.data.product,
+                                    method: 'post',
+                                    success: function (data) {
+                                   console.log(123)
+                                    }
+                                  })
+                                }
+                      
+                              }
+                      
+                          })
+                        
+                        }
+                      }
+                    })
+                  }
+                },
+                fail: function (res) {
+                }
               })
             }
-          });
+          })
+      
         }else{
           wx.showToast({
             title: 'Sim卡号不存在，请联系管理员',
@@ -103,122 +212,8 @@ Page({
         }
       }
     })
-    wx.request({
-      //获取openid接口   
-      url: app.globalData.webapi + '/webapi/enterprise/product/search?pageNum=1&pageSize=5',
-      data: {
-        boilerNo: "",
-        controllerNo: that.data.deviceNo,
-        customerName: null,
-        isSell: null,
-        media: null,
-        power: null,
-        productCategoryId: null,
-        productCategoryName: "",
-        saleDate: null,
-        tonnageNum: null,
-        userId: app.globalData.enterprise.employeeId,
-      },
-
-      method: 'post',
-      success: function (data) {
-        console.log(data)
-        let arr = data.data.data.list
-        
-          if (arr.length == 0) {
-            that.setData({
-              "product.controllerNo":that.data.deviceNo,
-              "product.userId": app.globalData.enterprise.userId,
-              "product.roleIdArray.roleId": app.globalData.enterprise.roleId,
-              "product.roleIdArray.roleName": app.globalData.enterprise.roleName,
-              "product.isSell": 0,
-              "product.orgId": app.globalData.enterprise.orgId,
-            })
-            wx.request({
-              //获取openid接口   
-              url: app.globalData.webapi + '/webapi/enterprise/product/create',
-              data: that.data.product,
-              method: 'post',
-              success: function (data) {
-             
-              }
-            })
-          }
-
-        }
-
-
-      
-    })
   
-     wx.request({
-      //获取openid接口   
-      url: app.globalData.webapi + '/devicesetting/setting/create',
-      data: {
-        deviceMapId: that.data.deviceMapId,
-        deviceMapTitle: that.data.deviceMapTitle,
-        params: that.data.params,
-        deviceNo: that.data.deviceNo,
-        stationNo: that.data.stationNo,
-      },
-      method: 'POST',
-      success: function (res) {
-        wx.request({
-          //获取openid接口   
-          url: app.globalData.webapi + '/devicesetting/setting/get',
-          data: {
-            deviceNo: that.data.deviceNo
-          },
-          method: 'POST',
-          header: {
-            "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
-          },
-          success: function (res) { 
-            if (res.data.code == 1) {
-              wx.showToast({
-                title: res.data.msg,
-                icon: 'none',
-                duration: 2000
-              })
-            } else {
-              var atString = res.data.data
-              wx.request({
-                //获取openid接口   
-                url: 'https://wx.dtu.aichaowei.com/api/setting/create?signKey=5dc91732cf6525c80c9794dd',
-                data: {
-                  atString: atString,
-                  deviceNo:  that.data.deviceNo,
-                  sn:  that.data.sn
-                },
-                header: {
-                  "Content-Type": "application/json"
-                },
-                method: 'POST',
-                success: function (res) {
-                  console.log(res)
-                  if (res.data.code == 1) {
-                    wx.showToast({
-                      title: res.data.message,
-                      icon: 'none',
-                      duration: 2000
-                    })
-                  } else {
-                    wx.showToast({
-                      title: res.data.message,
-                      icon: 'success',
-                      duration: 2000
-                    })
-                  }
-                }
-              })
-            }
-          },
-          fail: function (res) {
-          }
-        })
-      }
-    })
-
+  
   },
   simInput: function (e) {
     var that = this
@@ -252,7 +247,6 @@ Page({
       that.setData({
         deviceNo: e.detail.value
       })
-      params[0] = e.detail.value.substr(0,2)
     }
     params[e.currentTarget.dataset.index] = e.detail.value
     that.setData({
@@ -267,7 +261,25 @@ Page({
       deviceMapTitle: that.data.DeviceMapArray[e.detail.value].title,
       ParamsArray: that.data.DeviceMapArray[e.detail.value].params
     })
+    var deviceDataMap=JSON.parse(that.data.DeviceMapArray[e.detail.value].deviceDataMap)
 
+    if(deviceDataMap.no){
+      that.setData({
+        canctl: 1,
+      })
+    }
+    if(deviceDataMap.media.v){
+      that.setData({
+        media: deviceDataMap.media.v,
+      })
+    }
+    if(deviceDataMap.power.v){
+      that.setData({
+        power: deviceDataMap.power.v,
+      })
+    }
+  
+  
   },
 
   searchDataMap: function (e) {
@@ -301,6 +313,7 @@ Page({
       deviceMapTitle:""
     })
     that.searchDataMap()
+    
   },
   bindDeviceLine: function (e) {
     var that = this
@@ -392,7 +405,7 @@ Page({
   },
   onLoad: function () {
     var that = this
-   
+    
     //  wx.request({
     //   //获取openid接口   
     //   url: app.globalData.webapi + '/devicesetting/map/deviceMapId',
