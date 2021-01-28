@@ -193,28 +193,71 @@ Page({
                 "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
               },
               success: function (res) {
+                console.log(res)
                 var orgId = res.data.data.orgId
+                var unionId=res.data.data.unionId
                 app.globalData.enterprise.orgId=orgId
+                that.setData({
+                  enterpriseId: orgId
+                })
                 if (orgId == 1000007) {
                   that.setData({
                     super: true
                   })
-                }     
+                }
                 wx.request({
-                  url: app.globalData.webapi + '/webapi/datacenter/core/enterprise/customer/list',
+                  url: app.globalData.webapi + '/wechat/employee/find/unionId',
                   method: "GET",
                   data: {
-                    enterpriseId: orgId,
+                    unionId: unionId,
                   },
                   header: {
                     'content-type': 'application/x-www-form-urlencoded'
                   },
                   success: function (res) {
-                    that.setData({
-                      customerList: res.data.data
-                    });
+                    console.log(res)
+                    wx.request({
+                      url: app.globalData.webapi + '/account/datamanage/login',
+                      method: "POST",
+                      data: {
+                        loginId: res.data.data.mobile,
+                        password:res.data.data.password
+                      },
+                      header: {
+                        'content-type': 'application/x-www-form-urlencoded'
+                      },
+                      success: function (res) {
+                        wx.request({
+                          url: app.globalData.webapi + '/webapi/datacenter/core/enterprise/list',
+                          method: "GET",
+                          data: {
+                          },
+                          success: function (res) {
+                            that.setData({
+                              enterpriseList: res.data.data
+                            })
+                          }
+                        })
+                        wx.request({
+                          url: app.globalData.webapi + '/webapi/datacenter/core/enterprise/customer/list',
+                          method: "GET",
+                          data: {
+                            enterpriseId: orgId,
+                          },
+                          header: {
+                            'content-type': 'application/x-www-form-urlencoded'
+                          },
+                          success: function (res) {
+                            that.setData({
+                              customerList: res.data.data
+                            });
+                          }
+                        })
+                      }
+                    })
                   }
-                })
+                })     
+             
               }
             })
 
@@ -284,30 +327,7 @@ Page({
         })
       }
     })
-    wx.request({
-      url: app.globalData.webapi + '/account/datamanage/login',
-      method: "POST",
-      data: {
-        loginId: "18888281821",
-        password: "123456"
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success: function (res) {
-        wx.request({
-          url: app.globalData.webapi + '/webapi/datacenter/core/enterprise/list',
-          method: "GET",
-          data: {
-          },
-          success: function (res) {
-            that.setData({
-              enterpriseList: res.data.data
-            })
-          }
-        })
-      }
-    })
+    
   },
 
 

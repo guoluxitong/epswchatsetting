@@ -405,7 +405,7 @@ Page({
   },
   onLoad: function () {
     var that = this
-    
+  
     //  wx.request({
     //   //获取openid接口   
     //   url: app.globalData.webapi + '/devicesetting/map/deviceMapId',
